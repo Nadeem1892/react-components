@@ -6,6 +6,7 @@ import { ATMButton } from "../components/buttons/ATMButton"
 const ButtonsUi = () => {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-black to-purple-800">
+       
     {/* Filled Buttons Section */}
     <h2 className="mb-4 text-2xl font-semibold text-white">Filled Buttons</h2>
     <div className="flex items-center justify-center gap-4">
@@ -13,14 +14,14 @@ const ButtonsUi = () => {
         variant="filled"
         color="primary"
         size="sm"
-        children="Small"
+        children="Primary"
         onClick={() => alert("Small button clicked!")}
       />
       <ATMButton
         variant="filled"
         color="secondary"
         size="md"
-        children="Medium"
+        children="Secondary"
         onClick={() => alert("Medium button clicked!")}
       />
       <ATMButton
@@ -69,7 +70,7 @@ const ButtonsUi = () => {
         variant="filled"
         color="secondary"
         size="md"
-        children="Medium"
+        children="Secondary"
         onClick={() => alert("Medium button clicked!")}
       />
 
@@ -77,7 +78,7 @@ const ButtonsUi = () => {
         variant="filled"
         color="primary"
         size="sm"
-        children="Small"
+        children="Primary"
         onClick={() => alert("Small button clicked!")}
       />
     </div>
@@ -91,14 +92,14 @@ const ButtonsUi = () => {
         variant="outline"
         color="primary"
         size="sm"
-        children="Small"
+        children="Primary"
         onClick={() => alert("Small Outline button clicked!")}
       />
       <ATMButton
         variant="outline"
         color="secondary"
         size="md"
-        children="Medium"
+        children="Secondary"
         onClick={() => alert("Medium Outline button clicked!")}
       />
       <ATMButton
@@ -146,7 +147,7 @@ const ButtonsUi = () => {
         variant="outline"
         color="secondary"
         size="md"
-        children="Medium"
+        children="Secondary"
         onClick={() => alert("Medium Outline button clicked!")}
       />
 
@@ -154,7 +155,7 @@ const ButtonsUi = () => {
         variant="outline"
         color="primary"
         size="sm"
-        children="Small"
+        children="Primary"
         onClick={() => alert("Small Outline button clicked!")}
       />
     </div>
@@ -167,14 +168,14 @@ const ButtonsUi = () => {
         variant="link"
         color="primary"
         size="sm"
-        children="Small"
+        children="Primary"
         onClick={() => alert("Small Link button clicked!")}
       />
       <ATMButton
         variant="link"
         color="secondary"
         size="md"
-        children="Medium"
+        children="Secondary"
         onClick={() => alert("Medium Link button clicked!")}
       />
       <ATMButton
@@ -221,7 +222,7 @@ const ButtonsUi = () => {
         variant="link"
         color="secondary"
         size="md"
-        children="Medium"
+        children="Secondary"
         onClick={() => alert("Medium Link button clicked!")}
       />
 
@@ -229,7 +230,7 @@ const ButtonsUi = () => {
         variant="link"
         color="primary"
         size="sm"
-        children="Small"
+        children="Primary"
         onClick={() => alert("Small Link button clicked!")}
       />
     </div>
