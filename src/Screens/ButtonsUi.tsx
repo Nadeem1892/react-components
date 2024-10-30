@@ -4,6 +4,7 @@ import { ATMButton } from "../components/buttons/ATMButton"
 
 
 const ButtonsUi = () => {
+    
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-black to-purple-800">
        
