@@ -33,7 +33,7 @@ const colors = {
     danger: "text-red-500 border border-red-500 hover:bg-red-200",
   },
   link: {
-    primary: "text-blue-500 hover:text-white hover:bg-blue-500",
+    primary: "text-blue-500 hover:text-white lg:hover:bg-blue-500",
     secondary: "text-gray-500 hover:text-white hover:bg-gray-500",
     success: "text-green-500 hover:text-white hover:bg-green-500",
     danger: "text-red-500 hover:text-white hover:bg-red-500",
