@@ -12,7 +12,7 @@ const ButtonsUi = () => {
           <ATMButton
             variant="filled"
             color="primary"
-            size="md"
+            size="sm"
             children="Primary"
             onClick={() => alert("Small button clicked!")}
           />
@@ -26,7 +26,7 @@ const ButtonsUi = () => {
           <ATMButton
             variant="filled"
             color="success"
-            size="md"
+            size="lg"
             children="Success"
             onClick={() => alert("Success button clicked!")}
           />
@@ -34,7 +34,7 @@ const ButtonsUi = () => {
           <ATMButton
             variant="filled"
             color="danger"
-            size="md"
+            size="lg"
             isLoading={true}
             children="Loading..."
             onClick={() => alert("Danger button clicked!")}
@@ -43,7 +43,7 @@ const ButtonsUi = () => {
           <ATMButton
             variant="filled"
             color="danger"
-            size="md"
+            size="lg"
             children="Danger"
             onClick={() => alert("Danger button clicked!")}
           />
@@ -52,7 +52,7 @@ const ButtonsUi = () => {
             variant="filled"
             disabled
             color="danger"
-            size="md"
+            size="lg"
             children="Disabled"
             onClick={() => alert("Danger button clicked!")}
           />
@@ -60,7 +60,7 @@ const ButtonsUi = () => {
           <ATMButton
             variant="filled"
             color="success"
-            size="md"
+            size="lg"
             children="Success"
             onClick={() => alert("Success button clicked!")}
           />
@@ -76,7 +76,7 @@ const ButtonsUi = () => {
           <ATMButton
             variant="filled"
             color="primary"
-            size="md"
+            size="sm"
             children="Primary"
             onClick={() => alert("Small button clicked!")}
           />
@@ -92,7 +92,7 @@ const ButtonsUi = () => {
           <ATMButton
             variant="outline"
             color="primary"
-            size="md"
+            size="sm"
             children="Primary"
             onClick={() => alert("Small Outline button clicked!")}
           />
@@ -106,7 +106,7 @@ const ButtonsUi = () => {
           <ATMButton
             variant="outline"
             color="success"
-            size="md"
+            size="lg"
             children="Success"
             onClick={() => alert("Success Outline button clicked!")}
           />
@@ -114,7 +114,7 @@ const ButtonsUi = () => {
           <ATMButton
             variant="outline"
             color="danger"
-            size="md"
+            size="lg"
             isLoading={true}
             children="Loading..."
             onClick={() => alert("Danger Outline button clicked!")}
@@ -123,14 +123,14 @@ const ButtonsUi = () => {
           <ATMButton
             variant="outline"
             color="danger"
-            size="md"
+            size="lg"
             children="Danger"
             onClick={() => alert("Danger Outline button clicked!")}
           />
           <ATMButton
             variant="outline"
             color="danger"
-            size="md"
+            size="lg"
             disabled
             children="Disabled"
             onClick={() => alert("Danger Outline button clicked!")}
@@ -139,7 +139,7 @@ const ButtonsUi = () => {
           <ATMButton
             variant="outline"
             color="success"
-            size="md"
+            size="lg"
             children="Success"
             onClick={() => alert("Success Outline button clicked!")}
           />
@@ -155,7 +155,7 @@ const ButtonsUi = () => {
           <ATMButton
             variant="outline"
             color="primary"
-            size="md"
+            size="sm"
             children="Primary"
             onClick={() => alert("Small Outline button clicked!")}
           />
@@ -170,7 +170,7 @@ const ButtonsUi = () => {
         <ATMButton
           variant="link"
           color="primary"
-          size="md"
+          size="sm"
           children="Primary"
           onClick={() => alert("Small Link button clicked!")}
         />
@@ -184,7 +184,7 @@ const ButtonsUi = () => {
         <ATMButton
           variant="link"
           color="success"
-          size="md"
+          size="lg"
           children="Success"
           onClick={() => alert("Success Link button clicked!")}
         />
@@ -192,7 +192,7 @@ const ButtonsUi = () => {
         <ATMButton
           variant="link"
           color="danger"
-          size="md"
+          size="lg"
           isLoading={true}
           children="Loading..."
           onClick={() => alert("Danger Link button clicked!")}
@@ -200,14 +200,14 @@ const ButtonsUi = () => {
         <ATMButton
           variant="link"
           color="danger"
-          size="md"
+          size="lg"
           children="Danger"
           onClick={() => alert("Danger Link button clicked!")}
         />
         <ATMButton
           variant="link"
           color="danger"
-          size="md"
+          size="lg"
           disabled
           children="Disabled"
           onClick={() => alert("Danger Link button clicked!")}
@@ -216,7 +216,7 @@ const ButtonsUi = () => {
         <ATMButton
           variant="link"
           color="success"
-          size="md"
+          size="lg"
           children="Success"
           onClick={() => alert("Success Link button clicked!")}
         />
@@ -232,7 +232,7 @@ const ButtonsUi = () => {
         <ATMButton
           variant="link"
           color="primary"
-          size="md"
+          size="sm"
           children="Primary"
           onClick={() => alert("Small Link button clicked!")}
         />
