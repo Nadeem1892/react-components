@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
-import ButtonsUi from "./Screens/ButtonsUi";
+import GroupsInputs from "./Screens/GroupsInputs";
 
 
 function App() {
   return (
    <>
-   <ButtonsUi/>
+   <GroupsInputs/>
    </>
   );
 }
