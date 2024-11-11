@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Define types for the component props
+// Define types for the component props 
 interface TextInputProps {
   label: string;
   value: string;
