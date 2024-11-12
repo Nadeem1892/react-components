@@ -1,68 +1,84 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-// Define types for the component props 
-interface TextInputProps {
+// Define the props for the TextField component
+interface TextFieldProps {
   label: string;
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
   required?: boolean;
-  maxLength?: number;
-  errorMessage?: string;
   type?: 'text' | 'password' | 'email' | 'number';
-  size?: 'small' | 'medium' | 'large';  // Size prop
+  errorMessage?: string;
+  size?: 'small' | 'medium' | 'large';  // For controlling size of input
+  customClass?: string;  // For custom additional styling (optional)
 }
 
-const ATMTextInputField: React.FC<TextInputProps> = ({
+const ATMTextInputField: React.FC<TextFieldProps> = ({
   label,
   value,
   onChange,
   placeholder = '',
   required = false,
-  maxLength = 255,
-  errorMessage,
   type = 'text',
-  size = 'medium',  // Default size is 'medium'
+  errorMessage,
+  size = 'medium',
+  customClass = '',  // Accepts any custom class passed from the parent
 }) => {
-  // Handle value change in input
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.value);
-  };
-
-  // Class names based on size prop
+  // Size classes based on the 'size' prop
   const sizeClasses = {
     small: 'py-2 px-3 text-sm',
     medium: 'py-3 px-4 text-base',
     large: 'py-4 px-5 text-lg',
   };
 
-  // Check if there’s an error
-  const hasError = !!errorMessage || (required && !value);
+  // State to track if the input is touched (user has interacted with it)
+  const [isTouched, setIsTouched] = useState(false);
+
+  // Determine if the input has an error (either due to validation or custom error message)
+  const hasError = (required && !value && isTouched) || !!errorMessage;
+  const isValid = required && value && !hasError;
+
+  // Handle input focus and blur events
+  const handleFocus = () => {
+    setIsTouched(true);
+  };
+
+  // Dynamic border color logic
+  const borderColor = hasError
+    ? 'border-red-500' // Red border if there's an error
+    : isValid
+    ? 'border-green-500' // Green border if input is valid
+    : 'border-gray-300'; // Default gray border when untouched or invalid
 
   return (
-    <div className="mb-4 text-input-container">
+    <div className={`mb-4 ${customClass}`}>
       {/* Label */}
-      <label htmlFor={label} className="block mb-2 text-sm font-semibold text-input-label">
+      <label htmlFor={label} className="block mb-2 text-sm font-semibold text-gray-400">
         {label}
       </label>
-
-      {/* Input field */}
+      
+      {/* Input Field */}
       <input
         type={type}
         id={label}
         value={value}
-        onChange={handleChange}
+        onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        maxLength={maxLength}
         required={required}
-        className={`w-full border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all duration-200 ease-in-out ${sizeClasses[size]} ${hasError ? 'border-red-500' : 'border-gray-300'}`}
+        onFocus={handleFocus}
+        onBlur={handleFocus}
+        className={`w-full rounded-lg focus:outline-none bg-gray-700 text-gray-200 focus:ring-2 focus:ring-blue-500 transition-all duration-200 ease-in-out 
+          ${sizeClasses[size]} 
+          ${borderColor}`}
       />
-
+      
       {/* Error message */}
-      {(hasError || errorMessage) && (
-        <p className="mt-1 text-xs text-red-500 error-message">
-          {hasError ? 'This field is required.' : errorMessage}
-        </p>
+      {hasError && (
+        <p className="mt-1 text-xs text-red-500">{errorMessage || 'This field is required.'}</p>
+      )}
+      {/* Success message */}
+      {isValid && !hasError && (
+        <p className="mt-1 text-xs text-green-500">Valid input!</p>
       )}
     </div>
   );
