@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
-import GroupsInputs from "./Screens/GroupsInputs";
+import ATMFlipCard from "./components/cards/ATMFlipCard";
 
 
 function App() {
   return (
    <>
-   <GroupsInputs/>
+   <ATMFlipCard/>
    </>
   );
 }
