@@ -1,13 +1,14 @@
-import React from "react";
+
 import "./App.css";
-import ATMFlipCard from "./components/cards/ATMFlipCard";
+import GroupsCards from "./Screens/GroupsCards";
+
 
 
 function App() {
   return (
-   <>
-   <ATMFlipCard/>
-   </>
+  <>
+  <GroupsCards/>
+  </>
   );
 }
 
