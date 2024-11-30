@@ -7,7 +7,6 @@ import GroupsCards from "./Screens/GroupsCards";
 function App() {
   return (
   <>
-  <div>Deems</div>
   <GroupsCards/>
   </>
   );
