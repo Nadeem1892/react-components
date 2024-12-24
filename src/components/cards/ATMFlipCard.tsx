@@ -1,49 +1,75 @@
 import React from "react";
 
-// Default props for fallback values if props are not passed
-const ATMFlipCard = ({
-  title = "Delicious Lion Face Cake (Half Kg)",
-  description = "A delicious and creamy cake with rich flavor.",
-  price = "499.49",
-  titleSize = "text-xl",  // Default size for title
-  descriptionSize = "text-sm",  // Default size for description
-  priceSize = "text-lg",  // Default size for price
-  imageSrc = "https://mioamoreshop.com/cdn/shop/files/ChocoEspressoCake-WebsiteResize.png", // Default image
+// Define prop types for the component
+interface ATMFlipCardProps {
+  frontSide: {
+    productName: string;
+    productPrice: string;
+    specialEdition?: string; // Optional special edition
+    productImage: string;
+  };
+  backSide: {
+    buttonText: string; // Text for the button on the back side
+    onClick: () => void; // onClick function for the button
+  };
+  bgGradient?: string; // Optional background gradient
+  cardBgColor?: string; // Optional card background color
+  hoverBgColor?: string; // Optional hover background color
+  description: string;
+}
+
+const ATMFlipCard: React.FC<ATMFlipCardProps> = ({
+  frontSide,
+  backSide,
+  bgGradient = "bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500",
+  cardBgColor = "#67e1ff",
+  hoverBgColor = "#6797ff",
+  description,
 }) => {
   return (
-    // <div className="p-[0.8em] bg-[#f5f5f5] relative shadow-md border flex flex-col w-[190px] h-[280px]">
-    //   {/* Image */}
-    //   <div className="bg-orange-200 h-[50%] w-full rounded-lg transition-transform duration-300 transform lg:hover:translate-y-[-25%] hover:shadow-xl">
-    //     <img className="object-cover w-full h-full rounded-lg" src={imageSrc} alt="Product" />
-    //   </div>
+    <div
+      className={`flex flex-col justify-center items-center h-screen w-full ${bgGradient} text-white`}
+    >
+      {/* Title */}
+      <h1 className="text-4xl font-bold mb-8">ATM Flip Card Animation</h1>
 
-    //   {/* Product Info */}
-    //   <div className="py-2 pt-5 border-b border-gray-300">
-    //     <p className={`pb-2 ${titleSize} font-semibold text-gray-600 truncate text-sm`}>{title}</p>
-    //     <p className={`text-gray-500 ${descriptionSize} truncate`}>{description}</p>
-    //   </div>
+      {/* Card Container */}
+      <div
+        className={`card group w-[190px] h-[254px] transition-all duration-400 rounded-[10px] shadow-lg shadow-[rgba(0,0,0,0.705)] hover:scale-[1.2] hover:rounded-[15px]`}
+        style={{ backgroundColor: cardBgColor }}
+      >
+        {/* Front Content */}
+        <div className="first-content h-full text-[1.8rem] w-full opacity-100 transition-all duration-500 flex justify-center items-center rounded-[15px] group-hover:h-0 group-hover:opacity-0">
+          <div className="flex flex-col justify-center">
+            <img
+              src={frontSide.productImage}
+              alt={frontSide.productName}
+              className="mb-4 rounded-md w-40 h-32"
+            />
+            <span className="font-bold text-[20px]">{frontSide.productName}</span>
+            <p className="text-sm mt-2">₹ {frontSide.productPrice}</p>
+            {frontSide.specialEdition && (
+              <p className="text-sm mt-2 text-gray-400">{frontSide.specialEdition}</p>
+            )}
+          </div>
+        </div>
 
-    //   {/* Footer */}
-    //   <div className="flex items-center justify-between py-4">
-    //     <span className={`font-extrabold text-gray-800 ${priceSize}`}>&#8377; {price}</span>
+        {/* Back Content */}
+        <div className="second-content h-0 w-full opacity-0 text-[0px] transition-all duration-500 flex justify-center items-center rounded-[15px] rotate-90 group-hover:opacity-100 group-hover:h-full group-hover:text-[1.8rem] group-hover:rotate-0">
+          <div className="flex flex-col justify-center items-center text-center">
+            <button
+              onClick={backSide.onClick} // Trigger onClick event
+              className="bg-red-400 text-[15px] text-white py-1 px-4 rounded-lg hover:bg-red-600"
+            >
+              {backSide.buttonText}
+            </button>
+          </div>
+        </div>
+      </div>
 
-    //     {/* Button */}
-    //     <div className="flex items-center justify-center p-2 transition duration-300 ease-in-out border border-gray-800 rounded-full cursor-pointer hover:bg-orange-200 hover:border-orange-200">
-    //       <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-    //         <path d="M17.72,5.011H8.026c-0.271,0-0.49,0.219-0.49,0.489c0,0.271,0.219,0.489,0.49,0.489h8.962l-1.979,4.773H6.763L4.935,5.343C4.926,5.316,4.897,5.309,4.884,5.286c-0.011-0.024,0-0.051-0.017-0.074C4.833,5.166,4.025,4.081,2.33,3.908C2.068,3.883,1.822,4.075,1.795,4.344C1.767,4.612,1.962,4.853,2.231,4.88c1.143,0.118,1.703,0.738,1.808,0.866l1.91,5.661c0.066,0.199,0.252,0.333,0.463,0.333h8.924c0.116,0,0.22-0.053,0.308-0.128c0.027-0.023,0.042-0.048,0.063-0.076c0.026-0.034,0.063-0.058,0.08-0.099l2.384-5.75c0.062-0.151,0.046-0.323-0.045-0.458C18.036,5.092,17.883,5.011,17.72,5.011z"></path>
-    //         <path d="M8.251,12.386c-1.023,0-1.856,0.834-1.856,1.856s0.833,1.853,1.856,1.853c1.021,0,1.853-0.83,1.853-1.853S9.273,12.386,8.251,12.386z M8.251,15.116c-0.484,0-0.877-0.393-0.877-0.874c0-0.484,0.394-0.878,0.877-0.878c0.482,0,0.875,0.394,0.875,0.878C9.126,14.724,8.733,15.116,8.251,15.116z"></path>
-    //         <path d="M13.972,12.386c-1.022,0-1.855,0.834-1.855,1.856s0.833,1.853,1.855,1.853s1.854-0.83,1.854-1.853S14.994,12.386,13.972,12.386z M13.972,15.116c-0.484,0-0.878-0.393-0.878-0.874c0-0.484,0.394-0.878,0.878-0.878c0.482,0,0.875,0.394,0.875,0.878C14.847,14.724,14.454,15.116,13.972,15.116z"></path>
-    //       </svg>
-    //     </div>
-    //   </div>
-    // </div>
-
-    /* From Uiverse.io by Yaya12085 */ 
-<div className=" border w-64 shadow-lg h-40 flex items-center relative rounded-md">
-  <div className="bg-sky-500 w-20 h-32 absolute left-[-14px;] rounded-md">
-
-  </div>
-</div>
+      {/* Description */}
+      <p className="mt-8 text-lg text-center max-w-md">{description}</p>
+    </div>
   );
 };
 
